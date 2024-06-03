@@ -31,6 +31,8 @@ Configure the specified CPUs. Configuring a CPU means that the hypervisor takes 
 
 *-d*, *--disable* _cpu-list_::
 Disable the specified CPUs. Disabling a CPU means that the kernel sets it offline.
++
+If CPU (de)configure is supported, disabled but configured CPUs should be avoided to prevent performance penalties. This is especially important when the system is in vertical polarization as disabling high performing(vertical high) CPUs without deconfiguring them would prevent hipervisor from reassign CPU polarizations, causing workloads to run on other(vertical low) CPUs.
 
 *-e*, *--enable* _cpu-list_::
 Enable the specified CPUs. Enabling a CPU means that the kernel sets it online. A CPU must be configured, see *-c*, before it can be enabled.
